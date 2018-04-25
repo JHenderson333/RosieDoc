@@ -99,16 +99,12 @@ function getData(name){
   var data = null
   $.get(name, function() {
   })
-  .done(function() {
-
+  .done(function(data) {
+    $('#main').empty()
+    $('#main').append(data.documentElement.innerHTML)
   })
   .fail(function() {
     console.log( "error" );
-  })
-  .always(function(data) {
-      $('#main').empty()
-      $('#main').append(data.documentElement.innerHTML)
-
   });
 
 }
