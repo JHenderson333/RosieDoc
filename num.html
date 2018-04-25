@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <style>
+   table.headerTable{width: 600px; border-color: #002146; margin-bottom: 10px;}
+table.patternTable{
+float: left; width: 600px; border-bottom: solid; overflow: auto;
+font-weight:300; border-color: #002146; border-spacing: 10px;}
+h3{float: left;}
+th {float: left;}
+th.patternAttrHeader{padding-left: 10px;}
+th.patternAttr{ padding-left: 30px; font-weight: 100;}
+th.patternAttrName { font-size: 26; font-weight: 600;}
+normal { font-weight: 100; }
+  </style>
+ </head>
+ <body>
+  <table class="headerTable">
+   <tr>
+    <th>
+     VERSION:
+     <normal>
+      rpl 1.1
+     </normal>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     PACKAGE:
+     <normal>
+      num
+     </normal>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     IMPORTS:
+    </th>
+   </tr>
+  </table>
+  <table style="border-top:solid;">
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        int
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         int accepts "34", "+34", "-34"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         int rejects "BEEF", "0x20"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        uint
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         uint accepts "34", "0", "0987654321"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uint rejects "+1", "-5"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        frac
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         frac accepts ".0", ".01", ".3210009831", ".1"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         frac rejects "0.", "1.1", "-.1"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        decimal
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         decimal accepts "1.23", "1234.56789"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         decimal rejects "-1.23", "+1.23"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        mantissa
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         mantissa accepts "1.23", "+1.23", "-1.23"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         mantissa rejects "12", "bob", "1."
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        exp
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         exp accepts "e0", "e01", "e321", "e+10", "e-99", "E101", "E+1", "E+02"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         exp rejects "e0.", "e0a", "e+-10", "Ef"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        float
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         float accepts "6.02e23", "3.00E08", "0.123", "-2.0", "-2.0e1", "0.456e-101"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         float rejects "6.02F23", "3.00E--08", "123"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         float accepts "-1.32", "6.02E23", "+0.314e1"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         float rejects "0x01", "--2", "a", "-1", "+0", "3e", "3.14e"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         float includes mantissa "6.02e23"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         float includes exp "6.02e23"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         float excludes exp "3.1415"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        hex
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         hex accepts "BEEF", "f4c3b00c"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         hex rejects "0xBEEF", "Facebook"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        denoted_hex
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         denoted_hex accepts "0xBEEF", "0x20"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         denoted_hex rejects "BEEF", "0x2o"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        signed_number
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        unsigned_number
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        any
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         any accepts "0", "01", "-1", "-1.0", "+1", "+0", "+0.0", "-0.3e+1", "+1.1E-1", "0x1a", "face"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         any includes hex "83a", "0f"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+  </table>
+ </body>
+</html>

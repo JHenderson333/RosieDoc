@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <style>
+   table.headerTable{width: 600px; border-color: #002146; margin-bottom: 10px;}
+table.patternTable{
+float: left; width: 600px; border-bottom: solid; overflow: auto;
+font-weight:300; border-color: #002146; border-spacing: 10px;}
+h3{float: left;}
+th {float: left;}
+th.patternAttrHeader{padding-left: 10px;}
+th.patternAttr{ padding-left: 30px; font-weight: 100;}
+th.patternAttrName { font-size: 26; font-weight: 600;}
+normal { font-weight: 100; }
+  </style>
+ </head>
+ <body>
+  <table class="headerTable">
+   <tr>
+    <th>
+     VERSION:
+    </th>
+   </tr>
+   <tr>
+    <th>
+     PACKAGE:
+     <normal>
+      id
+     </normal>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     IMPORTS:
+    </th>
+   </tr>
+  </table>
+  <table style="border-top:solid;">
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        id1
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        id2
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        id3
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        id
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         id1 accepts "h", "www", "w1", "w_", "w_w"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         id1 rejects "1h", "_www", "w-1", "w$"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         id2 accepts "h", "www", "w1", "w_", "w_w", "w-", "w-w", "w-9"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         id2 rejects "1h", "_www", "w$"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         id3 accepts "h", "www", "w1", "w_", "w_w", "w-", "w-w", "w-9", "w$", "a$b", "a54$d"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         id3 rejects "1h", "_www"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        dotted
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         dotted accepts "a.b", "a.b.c.d", "charlie.delta_.ep$ilon"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         dotted rejects "a", "a..", ".", "_abc", "3x", "abc."
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        guid
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         guid accepts "b7ffaed1-a372-4119-bd19-324c7ba52f6a", "aae02a32-fcd1-4fac-9be7-c6d3936b9c51"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         guid accepts "b7ffAED1-a372-4119-bd19-324c7ba52f6a"  uppercase hex chars are OK
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         guid rejects "b7ffaed1X-a372-4119-bd19-324c7ba52f6a" extra char in first group
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         guid rejects "b7ffaed1-a372-4119X-bd19-324c7ba52f6a" extra char in third group
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         guid rejects "b7ffaed1-a372-4119-bd1-324c7ba52f6a"   missing char in fourth group
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         guid rejects "b7ffaed1-a372-4119-bd19-24c7ba52f6a"   missing char in last group
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         guid rejects "b7ffaed1_a372-4119-bd19-324c7ba52f6a"  underscore not dash
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         guid rejects "b7fgaed1-a372-4119-bd19-324c7ba52f6a"  non-hex char in first group
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        any
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+  </table>
+ </body>
+</html>

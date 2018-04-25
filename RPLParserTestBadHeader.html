@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <style>
+   table.headerTable{width: 600px; border-color: #002146; margin-bottom: 10px;}
+table.patternTable{
+float: left; width: 600px; border-bottom: solid; overflow: auto;
+font-weight:300; border-color: #002146; border-spacing: 10px;}
+h3{float: left;}
+th {float: left;}
+th.patternAttrHeader{padding-left: 10px;}
+th.patternAttr{ padding-left: 30px; font-weight: 100;}
+th.patternAttrName { font-size: 26; font-weight: 600;}
+normal { font-weight: 100; }
+  </style>
+ </head>
+ <body>
+  <table class="headerTable">
+  </table>
+  <table style="border-top:solid;">
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        key
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         key = key pattern assigned to the word.dq pattern
+        </th>
+       </tr>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         key accepts "\"\"", "\"abc 92\"", "\"abc \\\"def\\\"\""
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        value
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         value = uses key followed by a value
+        </th>
+       </tr>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         value accepts "true", "false", "null"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+  </table>
+ </body>
+</html>

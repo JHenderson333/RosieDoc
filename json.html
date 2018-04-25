@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <style>
+   table.headerTable{width: 600px; border-color: #002146; margin-bottom: 10px;}
+table.patternTable{
+float: left; width: 600px; border-bottom: solid; overflow: auto;
+font-weight:300; border-color: #002146; border-spacing: 10px;}
+h3{float: left;}
+th {float: left;}
+th.patternAttrHeader{padding-left: 10px;}
+th.patternAttr{ padding-left: 30px; font-weight: 100;}
+th.patternAttrName {padding-left: 10px; font-size: 40px; font-weight: 600;}
+normal { font-weight: 100; }
+  </style>
+ </head>
+ <body>
+  <table class="headerTable">
+   <tr>
+    <th>
+     te:
+    </th>
+   </tr>
+   <tr>
+    <th>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     language-integrated parser built specifically to parse JSON is usually the best way to process
+    </th>
+   </tr>
+   <tr>
+    <th>
+     on-encoded documents.  Occasionally, though, there will be a json-encoded field within non-json
+    </th>
+   </tr>
+   <tr>
+    <th>
+     ta, e.g. log files in which some entries contain json data in the message field.
+    </th>
+   </tr>
+   <tr>
+    <th>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     en using Rosie to parse such mixed input, it is useful to have a pattern in RPL that will match
+    </th>
+   </tr>
+   <tr>
+    <th>
+     json-encoded value so that the structured data in this value can be extracted later, as needed.
+    </th>
+   </tr>
+   <tr>
+    <th>
+    </th>
+   </tr>   <tr>
+    <th>
+     VERSION:
+    </th>
+   </tr>
+   <tr>
+    <th>
+     PACKAGE:
+     <normal>
+      json
+     </normal>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     IMPORTS:
+     <normal>
+      word, num
+     </normal>
+    </th>
+   </tr>
+  </table>
+  <table style="border-top:solid;">
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        value
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         value accepts "true", "false", "null"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         value rejects "ture", "f", "NULL"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         value accepts "0", "123", "-1", "1.1001", "1.2e10", "1.2e-10", "+3.3"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         value accepts "\"hello\"", "\"this string has \\\"embedded\\\" double quotes\""
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         value rejects "hello", "\"this string has no \\\"final quote\\\" "
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         value rejects "--2", "9.1.", "9.1.2", "++2", "2E02."
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         value accepts "[]", "[1, 2, 3.14, \"V\", 6.02e23, true]", "[1, 2, [7], [[8]]]"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         value rejects "[]]", "[", "[[]", "{1, 2}"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         value accepts "{\"one\":1}", "{ \"one\" :1}", "{ \"one\" : 1  }"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         value accepts "{\"one\":1, \"two\": 2}", "{\"one\":1, \"two\": 2, \"array\":[1,2]}"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         value accepts "[{\"v\":1}, {\"v\":2}, {\"v\":3}]"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+  </table>
+ </body>
+</html>

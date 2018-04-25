@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website." -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rosie Pattern Language: Documentation</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="shortcut icon" href="css/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link rel="stylesheet" href="css/side-menu.css">
+    <link href="css/syntax-friendly.css" rel="stylesheet">
+    
+
+
+<!--    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-" crossorigin="anonymous"> 
+-->
+    
+</head>
+<body>
+
+<div id="layout">
+
+
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <span></span>
+    </a>
+
+    <div id="menu" style = "width: 300px">
+        <div class="pure-menu">
+	  <img class="pure-img displayed" src="images/rosie-circle-blog.png">
+		<ul class="pure-menu-list">
+  <li class="pure-menu-heading" style="text-align:center;font-weight:300;">RPL Files</li> 
+  <li class="pure-menu-item">
+    
+    <input style ="margin-left: .5px; width:98%; height: 98%; font-size: 20px"  type="text" id="searchBar" onkeyup="searchJSON()" placeholder="Filter keyword" title="Type in a name">
+ 
+  </li> 
+    </ul>
+  <ul class = "pure-menu-list" id = "menuList">
+  <li class="pure-menu-item">
+    <a class="pure-menu-link" id = "file_link" name = "Category.html" onclick = "getData(this.name)" >Category</a>
+  </li>
+
+  <li class="pure-menu-item">
+    <a class = "pure-menu-link" id = "file_link" name = "RPLParserTest1.html" onclick = "getData(this.name)">RPLParserTest1</a>
+  </li>
+  
+  <li class="pure-menu-item">
+    <a name = "RPLParserTestBadHeader.html" id = "file_link" onclick = "getData(this.name)" class="pure-menu-link">RPLParserTestBadHeader</a>
+  </li>
+  <ul/>
+
+        </div>
+    </div>
+    <ul class = "horizontal-menu">
+
+      <li class="horizontal-list"><a href="https://github.com/jamiejennings/rosie-pattern-language"
+            class="horizontal-menu">RPL_Github</a> 
+      </li>
+      
+      <li class="horizontal-list"><a href="https://twitter.com/search?q=%23modernpatternmatching"
+            class="horizontal-menu">Rosie#</a> 
+      </li>
+
+      <li class="horizontal-list"><a href="https://twitter.com/jamietheriveter"
+            class="horizontal-menu">Twitter</a> 
+      </li>
+
+      <li class="horizontal-list"><a href="https://jamiejennings.github.io"
+            class="horizontal-menu">Jamie's Blog</a> 
+      </li>
+
+      <li class="horizontal-list"><a href="mailto:info@rosie-lang.org"
+            class="horizontal-menu">Contact us</a> 
+      </li>
+    
+    </ul>
+    <div id="main">
+      
+  
+    </div>
+ 
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<script>
+
+var json = null;
+var loaded = false;
+function getData(name){
+  var data = null
+  jQuery.get(name, function(data) {
+      
+      $('#main').empty()
+      $('#main').append(data.documentElement.innerHTML)
+      
+  });
+
+}
+function loadJSON(){
+  console.log("loading json");
+  json = $.getJSON( "search.json", function() {
+  })
+  .done(function() {
+  })
+  .fail(function() {
+    console.log( "error" );
+  })
+  .always(function() {
+    loaded = true
+    searchJSON(json)
+  });
+}
+window.onload = loadJSON
+
+function searchJSON(){
+  if(!loaded){
+    return;
+  }
+  var matches, input, filter, imports, packages, patterns, i;
+  input = document.getElementById("searchBar");
+  filter = input.value.toUpperCase();
+  matches = [];
+  if (filter === "" || !window.json.responseJSON){
+    return 
+  }
+ 
+  /*
+  for (i = 0; i < imports.length; i++){
+    var fileImports = imports[i].data
+    if(fileImports != "None" && fileImports[0] != "None"){
+      if(fileMatches(filter, fileImports)){
+        matches.push(imports[i].name);
+      }
+    }
+  }
+  */
+  matches = searchKey(matches, json.responseJSON["IMPORTS"],  filter);
+  matches = searchKey(matches, json.responseJSON["PACKAGES"], filter);
+  matches = searchKey(matches, json.responseJSON["PATTERNS"], filter);
+  
+  displayMatches(matches)
+}
+function searchKey(matches, keyData, filter){
+  for (i = 0; i < keyData.length; i++){
+    var fileData = keyData[i].data
+
+      if(fileData != "None" && fileData[0] != "None"){
+        if(fileMatches(filter, fileData) && !matches.includes(keyData[i].bName)){
+          matches.push(keyData[i].bName);
+        }
+      }
+    
+  }
+  return matches
+}
+function fileMatches(filter, data){
+  if (typeof data === "object" ){
+    for (var j = 0; j < data.length; j++){
+      //console.log("filter: " + filter + " file: " + data[j].toUpperCase());
+      if (data[j].toUpperCase().startsWith(filter)){
+        return true;
+      }
+    }
+  }
+  else{
+    return data.toUpperCase().startsWith(filter);
+  }
+  return false;
+}
+function displayMatches(matches){
+  $('#menuList').empty();
+  var list = document.getElementById('menuList');
+  for (var i = 0; i < matches.length; i++){
+    var li = document.createElement("LI");
+    var a = document.createElement("A");
+    a.innerHTML = matches[i].slice(0, matches[i].length - 5); // remove .html
+    a.name = matches[i];
+    a.className = "pure-menu-link";
+    a.addEventListener("click", function(){
+      getData(this.name);
+    });
+    li.className = "pure-menu-item";
+    li.append(a);
+    list.append(li);
+  }
+}
+</script>
+<script src="js/ui.js"></script>
+</body>
+</html>

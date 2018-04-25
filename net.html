@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <style>
+   table.headerTable{width: 600px; border-color: #002146; margin-bottom: 10px;}
+table.patternTable{
+float: left; width: 600px; border-bottom: solid; overflow: auto;
+font-weight:300; border-color: #002146; border-spacing: 10px;}
+h3{float: left;}
+th {float: left;}
+th.patternAttrHeader{padding-left: 10px;}
+th.patternAttr{ padding-left: 30px; font-weight: 100;}
+th.patternAttrName { font-size: 26; font-weight: 600;}
+normal { font-weight: 100; }
+  </style>
+ </head>
+ <body>
+  <table class="headerTable">
+   <tr>
+    <th>
+     t.any will match common network patterns (but not all the patterns defined above!)
+    </th>
+   </tr>   <tr>
+    <th>
+     VERSION:
+     <normal>
+      rpl 1.1
+     </normal>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     PACKAGE:
+     <normal>
+      net
+     </normal>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     IMPORTS:
+     <normal>
+      num
+     </normal>
+    </th>
+   </tr>
+  </table>
+  <table style="border-top:solid;">
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        ipv4
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         ipv4 accepts "0.0.0.0", "1.2.234.123", "999.999.999.999"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         ipv4 rejects "1234.1.2.3", "1.2.3", "111.222.333.", "111.222.333..444"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        ipv6
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         ipv6 includes ipv4 "::192.9.5.5", "::FFFF:129.144.52.38"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         ipv6 excludes ipv4 "1080::8:800:200C:417A", "2010:836B:4179::836B:4179"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         ipv6 accepts "::", "::1", "::face:b00c"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         ipv6 accepts "2001:0db8:0000:0000:0000:ff00:0042:8329", "2001:db8:0:0:0:ff00:42:8329", "2001:db8::ff00:42:8329"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         ipv6 accepts "FEDC:BA98:7654:3210:FEDC:BA98:7654:3210", "1080:0:0:0:8:800:200C:4171", "3ffe:2a00:100:7031::1"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         ipv6 accepts "1080::8:800:200C:417A", "::192.9.5.5", "::FFFF:129.144.52.38", "2010:836B:4179::836B:4179"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        ip
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         ip includes ipv4 "1.2.3.4"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         ip includes ipv6 "::192.9.5.5"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         ip includes ipv4 "::192.9.5.5"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        port
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        fqdn_strict
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        fqdn_practical
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        fqdn
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         fqdn accepts "a.edu", "A.BC.EDU", "X-Y.CS.CORNELL.EDU", "SRI-NIC.ARPA"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         fqdn accepts "ibm.com.", "9in.nails.band", "1AAA.SRI-NIC.ARPA"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         fqdn accepts "ibm.com:443", "ibm.com.:80"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         fqdn rejects ".EDU", "XY-.CS.CORNELL.EDU",
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         fqdn rejects "ibm.com:", "ibm.com:x"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         fqdn_strict rejects "ibm.com:443"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         fqdn_strict rejects "a", "abc", "ZZZZZZ", "Z-9"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         fqdn_strict accepts "1.2", "3.1415926536", "1.2."
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         fqdn_practical rejects "1.2", "3.1415926536", "1.2.", "1.2+ ", "-3.14"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        name
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        email
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         email accepts "me@here.com", "you+filter@somewhere.org", "k!!{}@example.com", "9name@gmail.com"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         email accepts "customer/department=shipping@example.com", "$A12345@example.com"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         email accepts "!def!xyz%abc@example.com", "_somename@example.com", "\"Joe.\\Blow\"@example.com"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         email accepts "\"John Doe\"@example.com", "\"Can put @ signs here!\"@example.com"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         email rejects "here.com", "foo@bar@example.com"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        registered_name
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        ip_literal
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        host
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         host accepts "a", "abc", "ZZZZZZ", "Z-9"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         host accepts "a.edu", "A.BC.EDU", "X-Y.CS.CORNELL.EDU", "SRI-NIC.ARPA"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         host accepts "ibm.com.", "9in.nails.band", "1AAA.SRI-NIC.ARPA"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         host accepts "XY-.CS.CORNELL.EDU" (not a valid domain name, but a valid URI hostname)
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         host accepts "[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]", "[1080:0:0:0:8:800:200C:417A]"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         host accepts "[3ffe:2a00:100:7031::1]"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         host accepts "[1080::8:800:200C:417A]", "[::192.9.5.5]", "[::FFFF:129.144.52.38]", "[2010:836B:4179::836B:4179]"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         host rejects "ibm.com:443", "example.com.:80"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         host rejects ".EDU"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         host rejects "ibm.com:", "ibm.com:x"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        userinfo
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        authority
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         authority accepts ""
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        path
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         path accepts "/other/link.html" (Sometimes called a "relative URL")
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         path accepts "/", "/a/b", "a/b", "a.b/", "a/b/c.d"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         path rejects "a", "a.b" (no slashes)
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        authpath
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        scheme
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        uri
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "ftp://ftp.is.co.za/rfc/rfc1808.txt"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "http://www.ietf.org/rfc/rfc2396.txt"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "ldap://[2001:db8::7]/c=GB?objectClass?one"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "mailto:John.Doe@example.com"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "news:comp.infosystems.www.servers.unix"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "tel:+1-816-555-1212"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "telnet://192.0.2.16:80/"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "urn:oasis:names:specification:docbook:dtd:xml:4.1.2"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "http://www.google.com", "http://google.com/"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "https://www.github.com/jamiejennings/rosie-pattern-language"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "ftp://some.ftp.net/path/to/file.zip"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "http://example.com/mypage.html", "ftp://example.com/download.zip"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "mailto:user@example.com", "file:///home/user/file.txt", "tel:1-888-555-5555"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "telnet://192.0.2.16:80/", "http://example.com/resource?foo=bar#fragment"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "foo:"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri rejects "foo"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        url
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         url rejects "foo:"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         url rejects "xyz::w"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        http_command_name
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        http_command
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        http_version
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        MAC_windows
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        MAC_common
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        MAC
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        any
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+  </table>
+ </body>
+</html>
