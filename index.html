@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rosie Pattern Language: Documentation</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <link rel="shortcut icon" href="css/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/pure-min.css">
     <link rel="stylesheet" href="css/side-menu.css">
@@ -96,17 +97,22 @@ var json = null;
 var loaded = false;
 function getData(name){
   var data = null
-  console.log(name);
-  jQuery.get(name, function(data) {
-      console.log(data);
+  $.get(name, function() {
+  })
+  .done(function() {
+
+  })
+  .fail(function() {
+    console.log( "error" );
+  })
+  .always(function(data) {
       $('#main').empty()
       $('#main').append(data.documentElement.innerHTML)
-      
+
   });
 
 }
 function loadJSON(){
-  console.log("loading json");
   json = $.getJSON( "search.json", function() {
   })
   .done(function() {
