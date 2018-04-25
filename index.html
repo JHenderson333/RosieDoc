@@ -96,6 +96,7 @@ var json = null;
 var loaded = false;
 function getData(name){
   var data = null
+  console.log(name);
   jQuery.get(name, function(data) {
       console.log(data);
       $('#main').empty()
