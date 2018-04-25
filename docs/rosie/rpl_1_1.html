@@ -2,15 +2,15 @@
 <html>
  <head>
   <style>
-   table.headerTable{width: 600px; border-color: #002146; margin-bottom: 10px;}
+   table.headerTable{float: left;  text-align: left; margin-left: 10px; width: 1200px; border-color: #002146; margin-bottom: 10px;}
 table.patternTable{
-float: left; width: 600px; border-bottom: solid; overflow: auto;
+float: left; width: 1200px; border-bottom: solid; overflow: auto;
 font-weight:300; border-color: #002146; border-spacing: 10px;}
 h3{float: left;}
 th {float: left;}
 th.patternAttrHeader{padding-left: 10px;}
 th.patternAttr{ padding-left: 30px; font-weight: 100;}
-th.patternAttrName { font-size: 26; font-weight: 600;}
+th.patternAttrName {padding-left: 0px; font-size: 40px; font-weight: 600;}
 normal { font-weight: 100; }
   </style>
  </head>
@@ -29,7 +29,7 @@ normal { font-weight: 100; }
     <th>
      PACKAGE:
      <normal>
-      rpl_1_2
+      rpl_1_1
      </normal>
     </th>
    </tr>
@@ -633,7 +633,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        binding_prefix
+        stmnt_prefix
        </th>
       </tr>
       <tr>
@@ -718,69 +718,6 @@ normal { font-weight: 100; }
       <tr>
        <th class="patternAttrName">
         syntax_error
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        exp
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        grammar_exp
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        let_exp
        </th>
       </tr>
       <tr>
@@ -1053,28 +990,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        binding
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        empty
+        local_
        </th>
       </tr>
       <tr>
@@ -1116,7 +1032,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        local_
+        grammar_
        </th>
       </tr>
       <tr>
@@ -1137,70 +1053,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        simple
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        bindings
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        grammar_block
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        let_block
+        assignment_
        </th>
       </tr>
       <tr>
@@ -1534,27 +1387,27 @@ normal { font-weight: 100; }
        </tr>
        <tr>
         <th class="patternAttr">
-         rpl_expression includes form.arglist "f:(x, y)", "f:(3)"
+         rpl_expression includes arglist "f:(x, y)", "f:(3)"
         </th>
        </tr>
        <tr>
         <th class="patternAttr">
-         rpl_expression excludes form.arglist "f:(x y)"
+         rpl_expression excludes arglist "f:(x y)"
         </th>
        </tr>
        <tr>
         <th class="patternAttr">
-         rpl_expression includes form.arg "f:(x)", f:(x y)", "f:x", "f:5", "f:{x y}", "f:{x}",
+         rpl_expression includes arg "f:(x)", f:(x y)", "f:x", "f:5", "f:{x y}", "f:{x}",
         </th>
        </tr>
        <tr>
         <th class="patternAttr">
-         rpl_expression includes form.arg "f:{a / b}+", "f:{(a)}", "f:{[:set:]}"
+         rpl_expression includes arg "f:{a / b}+", "f:{(a)}", "f:{[:set:]}"
         </th>
        </tr>
        <tr>
         <th class="patternAttr">
-         rpl_expression includes form.rawarglist "f:{5}", "f:{7, x, a / b / c+}", "f:{(a),b}", "f:{[:set:]{1,2},\"hi\"}"
+         rpl_expression includes rawarglist "f:{5}", "f:{7, x, a / b / c+}", "f:{(a),b}", "f:{[:set:]{1,2},\"hi\"}"
         </th>
        </tr>
       </tr>

@@ -2,15 +2,15 @@
 <html>
  <head>
   <style>
-   table.headerTable{width: 600px; border-color: #002146; margin-bottom: 10px;}
+   table.headerTable{float: left;  text-align: left; margin-left: 10px; width: 1200px; border-color: #002146; margin-bottom: 10px;}
 table.patternTable{
-float: left; width: 600px; border-bottom: solid; overflow: auto;
+float: left; width: 1200px; border-bottom: solid; overflow: auto;
 font-weight:300; border-color: #002146; border-spacing: 10px;}
 h3{float: left;}
 th {float: left;}
 th.patternAttrHeader{padding-left: 10px;}
 th.patternAttr{ padding-left: 30px; font-weight: 100;}
-th.patternAttrName { font-size: 26; font-weight: 600;}
+th.patternAttrName {padding-left: 0px; font-size: 40px; font-weight: 600;}
 normal { font-weight: 100; }
   </style>
  </head>
@@ -25,13 +25,16 @@ normal { font-weight: 100; }
     <th>
      PACKAGE:
      <normal>
-      WordBreak
+      ts
      </normal>
     </th>
    </tr>
    <tr>
     <th>
      IMPORTS:
+     <normal>
+      date, time
+     </normal>
     </th>
    </tr>
   </table>
@@ -41,7 +44,43 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        MidNum
+        rfc3339
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         rfc3339 accepts   "2015-10-02T23:59:59.573+02:00" yyyy-MM-dd'T'HH:mm:ss,sssZZZZ
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         rfc3339 accepts   "2015-10-14T22:11:20+00:00"     yyyy-MM-dd'T'HH:mm:ssZZZZ
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         rfc3339 accepts   "2014-07-01T14:59:55.711Z"      yyyy-MM-dd'T'HH:mm:ss.sssZ
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        rfc2822
        </th>
       </tr>
       <tr>
@@ -62,7 +101,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        E_Base_GAZ
+        slashed_colon
        </th>
       </tr>
       <tr>
@@ -83,7 +122,186 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        ALetter
+        us_long
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         us_long accepts   "Dec 2, 2010 2:39:58 AM"        MMM dd, yyyy hh:mm:ss am/pm
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         us_long accepts   "Jun 09 2011 15:28:14"          MMM dd yyyy HH:mm:ss
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        us_short
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         us_short accepts  "23 Apr 2015 11:42:35.883"      dd MMM yyyy HH:mm:ss.sss
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        slashed
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         slashed accepts   "06/01/22 04:09:05"             yy/MM/dd HH:mm:ss
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         slashed accepts   "2006/01/22 04:11:05"           yyyy/MM/dd HH:mm:ss
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         slashed accepts   "04/23/15 11:42:35"             MM/dd/yy HH:mm:ss
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         slashed accepts   "04/23/2015 11:42:35"           MM/dd/yyyy HH:mm:ss
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         slashed accepts   "04/23/2015 11:42:35.883"       MM/dd/yyyy HH:mm:ss.sss
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         slashed accepts    "9/28/2009 2:23:15 PM"         MM/dd/yyyy hh:mm:ss am/pm
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        dashed
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         dashed accepts    "11-02-11 16:47:35,985 +0000"   yy-MM-dd HH:mm:ss,sss ZZZZ
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         dashed accepts    "10-06-26 02:31:29,573"         yy-MM-dd HH:mm:ss,sss
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         dashed accepts    "10-04-19 12:00:17"             yy-MM-dd HH:mm:ss
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         dashed accepts    "2011-02-11 16:47:35,985 +0000" yyyy-MM-dd HH:mm:ss,sss ZZZZ
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         dashed accepts    "2011-08-19 12:17:55 -0400"     yyyy-MM-dd HH:mm:ss ZZZZ
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         dashed accepts    "2011-08-19 12:17:55-0400"      yyyy-MM-dd HH:mm:ssZZZZ
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         dashed accepts    "2016-09-06 10:51:18 PDT"       yyyy-MM-dd HH:mm:ss zzz
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         dashed accepts    "2010-06-26 02:31:29,573"       yyyy-MM-dd HH:mm:ss,sss
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         dashed accepts    "2010-04-19 12:00:17"           yyyy-MM-dd HH:mm:ss
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         dashed accepts    "2010-04-19 12:00:17:552"       yyyy-MM-dd HH:mm:ss:sss
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        spaced
        </th>
       </tr>
       <tr>
@@ -104,7 +322,33 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        E_Base
+        spaced_en
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         spaced_en accepts "2017 Jun 19 13:16:49.194 EST"  yyyy MMM dd HH:mm:ss.sss zzz
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        websphere
        </th>
       </tr>
       <tr>
@@ -125,7 +369,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        Numeric
+        db2
        </th>
       </tr>
       <tr>
@@ -146,7 +390,48 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        Format
+        mixed1
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         mixed1 accepts    "Apr 20 00:00:35 2010"          MMM dd HH:mm:ss yyyy
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         mixed1 accepts    "Feb 07 15:22:31 -0700 2016"    MMM dd HH:mm:ss ZZZZ yyyy
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         mixed1 accepts    "Sep 28 19:00:00 +0000"         MMM dd HH:mm:ss ZZZZ
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         mixed1 accepts    "Mar 16 08:12:04"               MMM dd HH:mm:ss
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        mixed2
        </th>
       </tr>
       <tr>
@@ -167,301 +452,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        LF
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        MidNumLet
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        Hebrew_Letter
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        E_Modifier
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        MidLetter
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        Newline
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        Double_Quote
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        Katakana
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        CR
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        Single_Quote
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        Extend
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        ExtendNumLet
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        ZWJ
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        Regional_Indicator
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        Glue_After_Zwj
+        any
        </th>
       </tr>
       <tr>

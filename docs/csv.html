@@ -2,21 +2,25 @@
 <html>
  <head>
   <style>
-   table.headerTable{width: 600px; border-color: #002146; margin-bottom: 10px;}
+   table.headerTable{float: left;  text-align: left; margin-left: 10px; width: 1200px; border-color: #002146; margin-bottom: 10px;}
 table.patternTable{
-float: left; width: 600px; border-bottom: solid; overflow: auto;
+float: left; width: 1200px; border-bottom: solid; overflow: auto;
 font-weight:300; border-color: #002146; border-spacing: 10px;}
 h3{float: left;}
 th {float: left;}
 th.patternAttrHeader{padding-left: 10px;}
 th.patternAttr{ padding-left: 30px; font-weight: 100;}
-th.patternAttrName { font-size: 26; font-weight: 600;}
+th.patternAttrName {padding-left: 0px; font-size: 40px; font-weight: 600;}
 normal { font-weight: 100; }
   </style>
  </head>
  <body>
   <table class="headerTable">
    <tr>
+    <th>
+     p level patterns
+    </th>
+   </tr>   <tr>
     <th>
      VERSION:
     </th>
@@ -25,7 +29,7 @@ normal { font-weight: 100; }
     <th>
      PACKAGE:
      <normal>
-      NumericType
+      csv
      </normal>
     </th>
    </tr>
@@ -41,7 +45,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        Digit
+        comma
        </th>
       </tr>
       <tr>
@@ -62,7 +66,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        Numeric
+        semicolon
        </th>
       </tr>
       <tr>
@@ -83,7 +87,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        Decimal
+        pipe
        </th>
       </tr>
       <tr>

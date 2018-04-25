@@ -2,21 +2,25 @@
 <html>
  <head>
   <style>
-   table.headerTable{width: 600px; border-color: #002146; margin-bottom: 10px;}
+   table.headerTable{float: left;  text-align: left; margin-left: 10px; width: 1200px; border-color: #002146; margin-bottom: 10px;}
 table.patternTable{
-float: left; width: 600px; border-bottom: solid; overflow: auto;
+float: left; width: 1200px; border-bottom: solid; overflow: auto;
 font-weight:300; border-color: #002146; border-spacing: 10px;}
 h3{float: left;}
 th {float: left;}
 th.patternAttrHeader{padding-left: 10px;}
 th.patternAttr{ padding-left: 30px; font-weight: 100;}
-th.patternAttrName { font-size: 26; font-weight: 600;}
+th.patternAttrName {padding-left: 0px; font-size: 40px; font-weight: 600;}
 normal { font-weight: 100; }
   </style>
  </head>
  <body>
   <table class="headerTable">
    <tr>
+    <th>
+     sts
+    </th>
+   </tr>   <tr>
     <th>
      VERSION:
     </th>
@@ -25,7 +29,7 @@ normal { font-weight: 100; }
     <th>
      PACKAGE:
      <normal>
-      LineBreak
+      rpl_1_1
      </normal>
     </th>
    </tr>
@@ -41,7 +45,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        NL
+        newline
        </th>
       </tr>
       <tr>
@@ -62,7 +66,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        JT
+        comment
        </th>
       </tr>
       <tr>
@@ -83,7 +87,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        SA
+        dot
        </th>
       </tr>
       <tr>
@@ -104,7 +108,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        SP
+        rest_of_line
        </th>
       </tr>
       <tr>
@@ -125,7 +129,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        GL
+        syntax_error
        </th>
       </tr>
       <tr>
@@ -146,7 +150,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        PR
+        localname
        </th>
       </tr>
       <tr>
@@ -167,7 +171,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        XX
+        packagename
        </th>
       </tr>
       <tr>
@@ -188,7 +192,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        OP
+        identifier
        </th>
       </tr>
       <tr>
@@ -209,7 +213,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        AI
+        literal
        </th>
       </tr>
       <tr>
@@ -230,7 +234,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        BA
+        tag
        </th>
       </tr>
       <tr>
@@ -251,7 +255,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        JV
+        hash_exp
        </th>
       </tr>
       <tr>
@@ -272,7 +276,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        EX
+        star
        </th>
       </tr>
       <tr>
@@ -293,7 +297,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        EM
+        question
        </th>
       </tr>
       <tr>
@@ -314,7 +318,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        CM
+        plus
        </th>
       </tr>
       <tr>
@@ -335,7 +339,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        B2
+        keyword
        </th>
       </tr>
       <tr>
@@ -356,7 +360,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        SG
+        complement
        </th>
       </tr>
       <tr>
@@ -377,7 +381,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        ZW
+        character
        </th>
       </tr>
       <tr>
@@ -398,7 +402,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        HY
+        range_first
        </th>
       </tr>
       <tr>
@@ -419,7 +423,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        RI
+        range_last
        </th>
       </tr>
       <tr>
@@ -440,7 +444,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        BK
+        range
        </th>
       </tr>
       <tr>
@@ -461,7 +465,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        H2
+        charlist
        </th>
       </tr>
       <tr>
@@ -482,7 +486,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        SY
+        name
        </th>
       </tr>
       <tr>
@@ -503,7 +507,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        CB
+        named_charset
        </th>
       </tr>
       <tr>
@@ -524,7 +528,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        ZWJ
+        low
        </th>
       </tr>
       <tr>
@@ -545,7 +549,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        NS
+        high
        </th>
       </tr>
       <tr>
@@ -566,7 +570,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        IN
+        repetition
        </th>
       </tr>
       <tr>
@@ -587,7 +591,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        QU
+        int
        </th>
       </tr>
       <tr>
@@ -608,7 +612,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        PO
+        assignment_prefix
        </th>
       </tr>
       <tr>
@@ -629,7 +633,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        JL
+        stmnt_prefix
        </th>
       </tr>
       <tr>
@@ -650,7 +654,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        NU
+        negation
        </th>
       </tr>
       <tr>
@@ -671,7 +675,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        AL
+        lookahead
        </th>
       </tr>
       <tr>
@@ -692,7 +696,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        BB
+        lookbehind
        </th>
       </tr>
       <tr>
@@ -713,7 +717,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        CL
+        predicate
        </th>
       </tr>
       <tr>
@@ -734,7 +738,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        IS
+        assignment_
        </th>
       </tr>
       <tr>
@@ -755,7 +759,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        CJ
+        major
        </th>
       </tr>
       <tr>
@@ -776,7 +780,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        CP
+        minor
        </th>
       </tr>
       <tr>
@@ -797,7 +801,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        CR
+        version_spec
        </th>
       </tr>
       <tr>
@@ -818,7 +822,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        HL
+        importpath
        </th>
       </tr>
       <tr>
@@ -839,7 +843,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        EB
+        import_spec
        </th>
       </tr>
       <tr>
@@ -860,7 +864,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        LF
+        language_decl
        </th>
       </tr>
       <tr>
@@ -881,7 +885,139 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        ID
+        package_decl
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         package_decl accepts "package foo", "package fooBar", "package f_oo"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         package_decl rejects "package", "package _foo", "package 6foo", "package .foo", "package foo.bar"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         package_decl rejects "package \n foo"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        import_decl
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         import_decl rejects "import"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         import_decl rejects "import \"foo/bar\","
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         import_decl accepts "import \"foo/bar\""
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         import_decl accepts "import \"foo/bar\", \"/usr/local/baz\", \"/usr/bin/time\""
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         import_decl accepts "import \"foo/bar\" as foo"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         import_decl accepts "import \"foo/bar\" as foo, \"/usr/local/baz\", \"/usr/bin/time\""
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         import_decl accepts "import \"foo/bar\" as foo, \"/usr/local/baz\" as ., \"/usr/bin/time\""
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         import_decl rejects "import foo,"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         import_decl rejects "import foo["
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         import_decl accepts "import foo/bar/baz"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         import_decl accepts "import foo/bar", usr/lo-cal/b_az, \"/usr/bin/time\""
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         import_decl accepts "import foo/bar as foo"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         import_decl accepts "import foo/bar as foo, \"/usr/local/baz\", bin/time"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         import_decl accepts "import f_o_o as foo, local/baz as ., bin/time"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         import_decl accepts "import f_o_o/bar as foo, \"/usr/local/baz\" as ., \"/usr/bin/time\""
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        rpl_statements
        </th>
       </tr>
       <tr>
@@ -902,7 +1038,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        H3
+        rpl_expression
        </th>
       </tr>
       <tr>
@@ -914,6 +1050,51 @@ normal { font-weight: 100; }
        <th class="patternAttrHeader">
         TESTS:
        </th>
+       <tr>
+        <th class="patternAttr">
+         rpl_expression accepts "foo_1:x", "pkg.f:x", "f:\"hello\"", "f:!x", "f:x+", "f:(x y z)", "f:{x y z}"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         rpl_expression accepts "f:(x, y)", "foo:{a, b}"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         rpl_expression accepts "f:(a, 55)", "foo.bar:(1, 2, 3, a b c, d / e, {f}*)", "f:{a / b, 3}+"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         rpl_expression rejects "f:", "pkg.f:"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         rpl_expression includes arglist "f:(x, y)", "f:(3)"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         rpl_expression excludes arglist "f:(x y)"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         rpl_expression includes arg "f:(x)", f:(x y)", "f:x", "f:5", "f:{x y}", "f:{x}",
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         rpl_expression includes arg "f:{a / b}+", "f:{(a)}", "f:{[:set:]}"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         rpl_expression includes rawarglist "f:{5}", "f:{7, x, a / b / c+}", "f:{(a),b}", "f:{[:set:]{1,2},\"hi\"}"
+        </th>
+       </tr>
       </tr>
      </table>
     </th>
@@ -923,7 +1104,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        WJ
+        preparse
        </th>
       </tr>
       <tr>
@@ -935,6 +1116,16 @@ normal { font-weight: 100; }
        <th class="patternAttrHeader">
         TESTS:
        </th>
+       <tr>
+        <th class="patternAttr">
+         preparse rejects "rpl", "rpl ", "rpl a", "rpl 1.a", "rpl 1.", "rpl 1.123", "rpl 1.\n1"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         preparse accepts "rpl 0.0", "  rpl 1.0\n", "rpl 52.99", "rpl 99.99", "rpl 1.1 -- Comment\n"
+        </th>
+       </tr>
       </tr>
      </table>
     </th>

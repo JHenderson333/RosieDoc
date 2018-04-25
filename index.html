@@ -40,17 +40,7 @@
   </li> 
     </ul>
   <ul class = "pure-menu-list" id = "menuList">
-  <li class="pure-menu-item">
-    <a class="pure-menu-link" id = "file_link" name = "Category.html" onclick = "getData(this.name)" >Category</a>
-  </li>
-
-  <li class="pure-menu-item">
-    <a class = "pure-menu-link" id = "file_link" name = "RPLParserTest1.html" onclick = "getData(this.name)">RPLParserTest1</a>
-  </li>
   
-  <li class="pure-menu-item">
-    <a name = "RPLParserTestBadHeader.html" id = "file_link" onclick = "getData(this.name)" class="pure-menu-link">RPLParserTestBadHeader</a>
-  </li>
   <ul/>
 
         </div>
@@ -97,7 +87,7 @@ var json = null;
 var loaded = false;
 function getData(name){
   var data = null
-  $.get(name, function() {
+  $.get(("Docs/" + name), function() {
   })
   .done(function(data) {
     $('#main').empty()
@@ -113,6 +103,11 @@ function getData(name){
   });
 
 }
+
+function load(){
+  loadJSON();
+  loadSideMenu();
+}
 function loadJSON(){
   json = $.getJSON( "search.json", function() {
   })
@@ -126,6 +121,15 @@ function loadJSON(){
     searchJSON(json)
   });
 }
+
+function loadSideMenu(){
+  $('#menuList').empty();
+  packages = json.responseJSON["PACKAGES"];
+  var list = document.getElementById('menuList');
+  for (var i = 0; i < packages.length; i++){
+    appendToMenu(packages[i].bName, list);
+  }
+}
 window.onload = loadJSON
 
 function searchJSON(){
@@ -137,7 +141,8 @@ function searchJSON(){
   filter = input.value.toUpperCase();
   matches = [];
   if (filter === "" || !window.json.responseJSON){
-    return 
+    loadSideMenu();
+    return;
   }
  
   /*
@@ -187,18 +192,22 @@ function displayMatches(matches){
   $('#menuList').empty();
   var list = document.getElementById('menuList');
   for (var i = 0; i < matches.length; i++){
-    var li = document.createElement("LI");
-    var a = document.createElement("A");
-    a.innerHTML = matches[i].slice(0, matches[i].length - 5); // remove .html
-    a.name = matches[i];
-    a.className = "pure-menu-link";
-    a.addEventListener("click", function(){
-      getData(this.name);
-    });
-    li.className = "pure-menu-item";
-    li.append(a);
-    list.append(li);
+    appendToMenu(matches[i], list);
   }
+}
+
+function appendToMenu(fileName, list){
+  var li = document.createElement("LI");
+  var a = document.createElement("A");
+  a.innerHTML = fileName.slice(0, fileName.length - 5); // remove .html
+  a.name = fileName;
+  a.className = "pure-menu-link";
+  a.addEventListener("click", function(){
+    getData(this.name);
+  });
+  li.className = "pure-menu-item";
+  li.append(a);
+  list.append(li);
 }
 </script>
 <script src="js/ui.js"></script>

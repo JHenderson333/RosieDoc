@@ -2,15 +2,15 @@
 <html>
  <head>
   <style>
-   table.headerTable{width: 600px; border-color: #002146; margin-bottom: 10px;}
+   table.headerTable{float: left;  text-align: left; margin-left: 10px; width: 1200px; border-color: #002146; margin-bottom: 10px;}
 table.patternTable{
-float: left; width: 600px; border-bottom: solid; overflow: auto;
+float: left; width: 1200px; border-bottom: solid; overflow: auto;
 font-weight:300; border-color: #002146; border-spacing: 10px;}
 h3{float: left;}
 th {float: left;}
 th.patternAttrHeader{padding-left: 10px;}
 th.patternAttr{ padding-left: 30px; font-weight: 100;}
-th.patternAttrName { font-size: 26; font-weight: 600;}
+th.patternAttrName {padding-left: 0px; font-size: 40px; font-weight: 600;}
 normal { font-weight: 100; }
   </style>
  </head>
@@ -25,7 +25,7 @@ normal { font-weight: 100; }
     <th>
      PACKAGE:
      <normal>
-      Ascii
+      WordBreak
      </normal>
     </th>
    </tr>
@@ -41,7 +41,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        upper
+        MidNum
        </th>
       </tr>
       <tr>
@@ -62,7 +62,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        space
+        E_Base_GAZ
        </th>
       </tr>
       <tr>
@@ -83,7 +83,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        punct
+        ALetter
        </th>
       </tr>
       <tr>
@@ -104,7 +104,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        alnum
+        E_Base
        </th>
       </tr>
       <tr>
@@ -125,7 +125,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        xdigit
+        Numeric
        </th>
       </tr>
       <tr>
@@ -146,7 +146,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        graph
+        Format
        </th>
       </tr>
       <tr>
@@ -167,7 +167,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        print
+        LF
        </th>
       </tr>
       <tr>
@@ -188,7 +188,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        alpha
+        MidNumLet
        </th>
       </tr>
       <tr>
@@ -209,7 +209,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        digit
+        Hebrew_Letter
        </th>
       </tr>
       <tr>
@@ -230,7 +230,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        lower
+        E_Modifier
        </th>
       </tr>
       <tr>
@@ -251,7 +251,217 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        cntrl
+        MidLetter
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        Newline
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        Double_Quote
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        Katakana
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        CR
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        Single_Quote
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        Extend
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        ExtendNumLet
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        ZWJ
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        Regional_Indicator
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        Glue_After_Zwj
        </th>
       </tr>
       <tr>

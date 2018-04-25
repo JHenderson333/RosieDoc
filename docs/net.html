@@ -2,21 +2,25 @@
 <html>
  <head>
   <style>
-   table.headerTable{width: 600px; border-color: #002146; margin-bottom: 10px;}
+   table.headerTable{float: left;  text-align: left; margin-left: 10px; width: 1200px; border-color: #002146; margin-bottom: 10px;}
 table.patternTable{
-float: left; width: 600px; border-bottom: solid; overflow: auto;
+float: left; width: 1200px; border-bottom: solid; overflow: auto;
 font-weight:300; border-color: #002146; border-spacing: 10px;}
 h3{float: left;}
 th {float: left;}
 th.patternAttrHeader{padding-left: 10px;}
 th.patternAttr{ padding-left: 30px; font-weight: 100;}
-th.patternAttrName { font-size: 26; font-weight: 600;}
+th.patternAttrName {padding-left: 0px; font-size: 40px; font-weight: 600;}
 normal { font-weight: 100; }
   </style>
  </head>
  <body>
   <table class="headerTable">
    <tr>
+    <th>
+     t.any will match common network patterns (but not all the patterns defined above!)
+    </th>
+   </tr>   <tr>
     <th>
      VERSION:
      <normal>
@@ -28,13 +32,16 @@ normal { font-weight: 100; }
     <th>
      PACKAGE:
      <normal>
-      date
+      net
      </normal>
     </th>
    </tr>
    <tr>
     <th>
      IMPORTS:
+     <normal>
+      num
+     </normal>
     </th>
    </tr>
   </table>
@@ -44,7 +51,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        year
+        ipv4
        </th>
       </tr>
       <tr>
@@ -58,12 +65,12 @@ normal { font-weight: 100; }
        </th>
        <tr>
         <th class="patternAttr">
-         year accepts "1960", "1999", "2010", "9999"
+         ipv4 accepts "0.0.0.0", "1.2.234.123", "999.999.999.999"
         </th>
        </tr>
        <tr>
         <th class="patternAttr">
-         year rejects "99", "00", "12345", "year"
+         ipv4 rejects "1234.1.2.3", "1.2.3", "111.222.333.", "111.222.333..444"
         </th>
        </tr>
       </tr>
@@ -75,7 +82,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        month
+        ipv6
        </th>
       </tr>
       <tr>
@@ -89,12 +96,32 @@ normal { font-weight: 100; }
        </th>
        <tr>
         <th class="patternAttr">
-         month accepts "01", "1", "06", "10", "12"
+         ipv6 includes ipv4 "::192.9.5.5", "::FFFF:129.144.52.38"
         </th>
        </tr>
        <tr>
         <th class="patternAttr">
-         month rejects "00", "13", "99"
+         ipv6 excludes ipv4 "1080::8:800:200C:417A", "2010:836B:4179::836B:4179"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         ipv6 accepts "::", "::1", "::face:b00c"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         ipv6 accepts "2001:0db8:0000:0000:0000:ff00:0042:8329", "2001:db8:0:0:0:ff00:42:8329", "2001:db8::ff00:42:8329"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         ipv6 accepts "FEDC:BA98:7654:3210:FEDC:BA98:7654:3210", "1080:0:0:0:8:800:200C:4171", "3ffe:2a00:100:7031::1"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         ipv6 accepts "1080::8:800:200C:417A", "::192.9.5.5", "::FFFF:129.144.52.38", "2010:836B:4179::836B:4179"
         </th>
        </tr>
       </tr>
@@ -106,7 +133,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        day
+        ip
        </th>
       </tr>
       <tr>
@@ -120,12 +147,17 @@ normal { font-weight: 100; }
        </th>
        <tr>
         <th class="patternAttr">
-         day accepts "01", "2", "06", "10", "16", "20", "29", "31"
+         ip includes ipv4 "1.2.3.4"
         </th>
        </tr>
        <tr>
         <th class="patternAttr">
-         day rejects "0", "00", "32", "99"
+         ip includes ipv6 "::192.9.5.5"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         ip includes ipv4 "::192.9.5.5"
         </th>
        </tr>
       </tr>
@@ -137,59 +169,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        rfc3339
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-       <tr>
-        <th class="patternAttr">
-         rfc3339 accepts "2017-04-28", "1999-10-31"
-        </th>
-       </tr>
-       <tr>
-        <th class="patternAttr">
-         rfc3339 rejects "99-01-01", "2010-15-03", "1999-12-32"
-        </th>
-       </tr>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        day_shortname
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        day_longname
+        port
        </th>
       </tr>
       <tr>
@@ -210,7 +190,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        day_name
+        fqdn_strict
        </th>
       </tr>
       <tr>
@@ -231,7 +211,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        month_shortname
+        fqdn_practical
        </th>
       </tr>
       <tr>
@@ -252,7 +232,73 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        month_longname
+        fqdn
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         fqdn accepts "a.edu", "A.BC.EDU", "X-Y.CS.CORNELL.EDU", "SRI-NIC.ARPA"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         fqdn accepts "ibm.com.", "9in.nails.band", "1AAA.SRI-NIC.ARPA"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         fqdn accepts "ibm.com:443", "ibm.com.:80"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         fqdn rejects ".EDU", "XY-.CS.CORNELL.EDU",
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         fqdn rejects "ibm.com:", "ibm.com:x"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         fqdn_strict rejects "ibm.com:443"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         fqdn_strict rejects "a", "abc", "ZZZZZZ", "Z-9"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         fqdn_strict accepts "1.2", "3.1415926536", "1.2."
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         fqdn_practical rejects "1.2", "3.1415926536", "1.2.", "1.2+ ", "-3.14"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        name
        </th>
       </tr>
       <tr>
@@ -273,7 +319,53 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        month_name
+        email
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         email accepts "me@here.com", "you+filter@somewhere.org", "k!!{}@example.com", "9name@gmail.com"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         email accepts "customer/department=shipping@example.com", "$A12345@example.com"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         email accepts "!def!xyz%abc@example.com", "_somename@example.com", "\"Joe.\\Blow\"@example.com"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         email accepts "\"John Doe\"@example.com", "\"Can put @ signs here!\"@example.com"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         email rejects "here.com", "foo@bar@example.com"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        registered_name
        </th>
       </tr>
       <tr>
@@ -294,167 +386,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        rfc2822
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-       <tr>
-        <th class="patternAttr">
-         rfc2822 accepts "Fri, 28 Apr 2017", "Fri, 31 Dec 1999", "31 Dec 2001"
-        </th>
-       </tr>
-       <tr>
-        <th class="patternAttr">
-         rfc2822 rejects "Dec 31 2001", "Monday, May 22, 2017"
-        </th>
-       </tr>
-       <tr>
-        <th class="patternAttr">
-         rfc2822 rejects "Fri 28, Apr 2010", "Tue, Feb 31st 2001", "31 Dec 01"
-        </th>
-       </tr>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        dashed
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-       <tr>
-        <th class="patternAttr">
-         dashed accepts "2017-04-28", "1999-10-31"
-        </th>
-       </tr>
-       <tr>
-        <th class="patternAttr">
-         dashed rejects "77899-01-01", "2010-15-03", "1999-12-32"
-        </th>
-       </tr>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        slashed
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-       <tr>
-        <th class="patternAttr">
-         slashed accepts "2017/04/28", "1999/10/31"
-        </th>
-       </tr>
-       <tr>
-        <th class="patternAttr">
-         slashed rejects "77899/01/01", "2010/15/03", "1999/12/32"
-        </th>
-       </tr>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        spaced
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-       <tr>
-        <th class="patternAttr">
-         spaced accepts "2017 04 28", "1999 10 31",
-        </th>
-       </tr>
-       <tr>
-        <th class="patternAttr">
-         spaced rejects "77899 01 01", "2010 15 03", "1999 12 32", "1999 10   03"
-        </th>
-       </tr>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        spaced_en
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-       <tr>
-        <th class="patternAttr">
-         spaced_en accepts "2017 Apr 28", "1999 October 31",
-        </th>
-       </tr>
-       <tr>
-        <th class="patternAttr">
-         spaced_en rejects "77899 January 01", "2010 Saturn 03", "1999 Dec 32", "2010 May   03"
-        </th>
-       </tr>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        short_long_year
+        ip_literal
        </th>
       </tr>
       <tr>
@@ -475,7 +407,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        us_dashed
+        host
        </th>
       </tr>
       <tr>
@@ -489,12 +421,52 @@ normal { font-weight: 100; }
        </th>
        <tr>
         <th class="patternAttr">
-         us_dashed accepts "4-28-2017", "04-28-2017", "10-31-1999", "1-1-01"
+         host accepts "a", "abc", "ZZZZZZ", "Z-9"
         </th>
        </tr>
        <tr>
         <th class="patternAttr">
-         us_dashed rejects "01-01-77899", "15-03-2010", "12-32-1999"
+         host accepts "a.edu", "A.BC.EDU", "X-Y.CS.CORNELL.EDU", "SRI-NIC.ARPA"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         host accepts "ibm.com.", "9in.nails.band", "1AAA.SRI-NIC.ARPA"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         host accepts "XY-.CS.CORNELL.EDU" (not a valid domain name, but a valid URI hostname)
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         host accepts "[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]", "[1080:0:0:0:8:800:200C:417A]"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         host accepts "[3ffe:2a00:100:7031::1]"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         host accepts "[1080::8:800:200C:417A]", "[::192.9.5.5]", "[::FFFF:129.144.52.38]", "[2010:836B:4179::836B:4179]"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         host rejects "ibm.com:443", "example.com.:80"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         host rejects ".EDU"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         host rejects "ibm.com:", "ibm.com:x"
         </th>
        </tr>
       </tr>
@@ -506,59 +478,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        us_slashed
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-       <tr>
-        <th class="patternAttr">
-         us_slashed accepts "04/28/2017", "10/31/1999", "1/1/01"
-        </th>
-       </tr>
-       <tr>
-        <th class="patternAttr">
-         us_slashed rejects "01/01/77899", "15/03/2010", "12/32/1999"
-        </th>
-       </tr>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        eur
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        DESCRIPTION:
-       </th>
-      </tr>
-      <tr>
-       <th class="patternAttrHeader">
-        TESTS:
-       </th>
-      </tr>
-     </table>
-    </th>
-   </tr>
-   <tr>
-    <th>
-     <table class="patternTable">
-      <tr>
-       <th class="patternAttrName">
-        us_short
+        userinfo
        </th>
       </tr>
       <tr>
@@ -579,7 +499,7 @@ normal { font-weight: 100; }
      <table class="patternTable">
       <tr>
        <th class="patternAttrName">
-        us_long
+        authority
        </th>
       </tr>
       <tr>
@@ -593,24 +513,345 @@ normal { font-weight: 100; }
        </th>
        <tr>
         <th class="patternAttr">
-         us_long accepts "April 1, 1900", "Jan 23 2017", "Apr     8"
+         authority accepts ""
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        path
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         path accepts "/other/link.html" (Sometimes called a "relative URL")
         </th>
        </tr>
        <tr>
         <th class="patternAttr">
-         us_long accepts "Dec 31 2016", "March 3 1999",
+         path accepts "/", "/a/b", "a/b", "a.b/", "a/b/c.d"
         </th>
        </tr>
        <tr>
         <th class="patternAttr">
-         us_long rejects "1 October 1900", "Superbowl 1965", "Apr     48"
+         path rejects "a", "a.b" (no slashes)
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        authpath
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        scheme
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        uri
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "ftp://ftp.is.co.za/rfc/rfc1808.txt"
         </th>
        </tr>
        <tr>
         <th class="patternAttr">
-         us_long accepts "Sat Aug 12"
+         uri accepts "http://www.ietf.org/rfc/rfc2396.txt"
         </th>
        </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "ldap://[2001:db8::7]/c=GB?objectClass?one"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "mailto:John.Doe@example.com"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "news:comp.infosystems.www.servers.unix"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "tel:+1-816-555-1212"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "telnet://192.0.2.16:80/"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "urn:oasis:names:specification:docbook:dtd:xml:4.1.2"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "http://www.google.com", "http://google.com/"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "https://www.github.com/jamiejennings/rosie-pattern-language"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "ftp://some.ftp.net/path/to/file.zip"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "http://example.com/mypage.html", "ftp://example.com/download.zip"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "mailto:user@example.com", "file:///home/user/file.txt", "tel:1-888-555-5555"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "telnet://192.0.2.16:80/", "http://example.com/resource?foo=bar#fragment"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri accepts "foo:"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         uri rejects "foo"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        url
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+       <tr>
+        <th class="patternAttr">
+         url rejects "foo:"
+        </th>
+       </tr>
+       <tr>
+        <th class="patternAttr">
+         url rejects "xyz::w"
+        </th>
+       </tr>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        http_command_name
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        http_command
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        http_version
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        MAC_windows
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        MAC_common
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
+      </tr>
+     </table>
+    </th>
+   </tr>
+   <tr>
+    <th>
+     <table class="patternTable">
+      <tr>
+       <th class="patternAttrName">
+        MAC
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        DESCRIPTION:
+       </th>
+      </tr>
+      <tr>
+       <th class="patternAttrHeader">
+        TESTS:
+       </th>
       </tr>
      </table>
     </th>
