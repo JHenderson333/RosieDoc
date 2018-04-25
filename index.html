@@ -101,7 +101,12 @@ function getData(name){
   })
   .done(function(data) {
     $('#main').empty()
-    $('#main').append(data.documentElement.innerHTML)
+    if(data.documentElement){ //Local append
+      $('#main').append(data.documentElement.innerHTML)
+    }else{ //Browser loads data as the entire html
+      $('#main').append(data)
+    }
+    
   })
   .fail(function() {
     console.log( "error" );
